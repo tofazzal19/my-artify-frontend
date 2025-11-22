@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(),tailwindcss()],
   server: {
-    port: 3000,
+    port: 5173,
     proxy: {
       '/api': {
-        target: 'https://my-artify-backend.vercel.app',
+        target: 'https://my-artify-backend.onrender.com',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '/api')
